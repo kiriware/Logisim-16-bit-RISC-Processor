@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="2.7.1" version="1.0">
+This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
+<lib desc="#Wiring" name="0">
+    <tool name="Splitter">
+      <a name="facing" val="north"/>
+    </tool>
+    <tool name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="labelfont" val="SansSerif plain 6"/>
+    </tool>
+    <tool name="Constant">
+      <a name="facing" val="west"/>
+      <a name="value" val="0x0"/>
+    </tool>
+  </lib>
+  <lib desc="#Gates" name="1"/>
+  <lib desc="#Plexers" name="2"/>
+  <lib desc="#Arithmetic" name="3"/>
+  <lib desc="#Memory" name="4">
+    <tool name="ROM">
+      <a name="contents">addr/data: 8 8
+0
+</a>
+    </tool>
+  </lib>
+  <lib desc="#I/O" name="5"/>
+  <lib desc="#Base" name="6">
+    <tool name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+  </lib>
+  <main name="Data Memory 16-bit"/>
+  <options>
+    <a name="gateUndefined" val="ignore"/>
+    <a name="simlimit" val="1000"/>
+    <a name="simrand" val="0"/>
+  </options>
+  <mappings>
+    <tool lib="6" map="Button2" name="Menu Tool"/>
+    <tool lib="6" map="Button3" name="Menu Tool"/>
+    <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
+  </mappings>
+  <toolbar>
+    <tool lib="6" name="Poke Tool"/>
+    <tool lib="6" name="Edit Tool"/>
+    <tool lib="6" name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+    <sep/>
+    <tool lib="0" name="Pin">
+      <a name="tristate" val="false"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </tool>
+    <tool lib="1" name="NOT Gate"/>
+    <tool lib="1" name="AND Gate"/>
+    <tool lib="1" name="OR Gate"/>
+  </toolbar>
+  <circuit name="Data Memory 16-bit">
+    <a name="circuit" val="Data Memory 16-bit"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 6"/>
+    <appear>
+      <path d="M52,117 Q68,110 51,102" fill="none" stroke="#808080" stroke-width="2"/>
+      <rect fill="none" height="120" stroke="#000000" stroke-width="2" width="91" x="50" y="20"/>
+      <text font-family="SansSerif" font-size="9" font-weight="bold" text-anchor="middle" x="95" y="33">Data</text>
+      <text font-family="SansSerif" font-size="9" font-weight="bold" text-anchor="middle" x="96" y="42">Memory</text>
+      <text font-family="SansSerif" font-size="6" text-anchor="middle" x="68" y="134">MemWrite</text>
+      <text font-family="SansSerif" font-size="6" text-anchor="middle" x="121" y="134">MemRead</text>
+      <text font-family="SansSerif" font-size="6" text-anchor="middle" x="68" y="71">Address</text>
+      <text font-family="SansSerif" font-size="6" text-anchor="middle" x="66" y="92">Data In</text>
+      <text font-family="SansSerif" font-size="6" text-anchor="middle" x="120" y="71">Data Out</text>
+      <text font-family="SansSerif" font-size="6" text-anchor="middle" x="70" y="112">Clock</text>
+      <text font-family="SansSerif" font-size="9" font-weight="bold" text-anchor="middle" x="93" y="51">16-bit</text>
+      <polyline fill="none" points="78,54 109,54" stroke="#000000"/>
+      <text font-family="SansSerif" font-size="6" text-anchor="middle" x="60" y="29">Reset</text>
+      <circ-port height="8" pin="100,60" width="8" x="46" y="66"/>
+      <circ-port height="8" pin="100,140" width="8" x="46" y="86"/>
+      <circ-port height="10" pin="280,100" width="10" x="135" y="65"/>
+      <circ-port height="8" pin="150,140" width="8" x="66" y="136"/>
+      <circ-port height="8" pin="190,140" width="8" x="46" y="106"/>
+      <circ-port height="8" pin="210,140" width="8" x="116" y="136"/>
+      <circ-port height="8" pin="230,140" width="8" x="56" y="16"/>
+      <circ-anchor facing="east" height="6" width="6" x="137" y="67"/>
+    </appear>
+    <wire from="(110,120)" to="(110,140)"/>
+    <wire from="(100,140)" to="(110,140)"/>
+    <wire from="(110,120)" to="(120,120)"/>
+    <wire from="(110,100)" to="(120,100)"/>
+    <wire from="(100,60)" to="(110,60)"/>
+    <wire from="(110,60)" to="(110,100)"/>
+    <wire from="(260,100)" to="(280,100)"/>
+    <comp lib="0" loc="(170,140)" name="Constant">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="0" loc="(100,60)" name="Pin">
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Address"/>
+      <a name="labelloc" val="south"/>
+    </comp>
+    <comp lib="4" loc="(260,100)" name="RAM">
+      <a name="addrWidth" val="16"/>
+      <a name="dataWidth" val="16"/>
+      <a name="bus" val="separate"/>
+    </comp>
+    <comp lib="0" loc="(150,140)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Store"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="SansSerif plain 6"/>
+    </comp>
+    <comp lib="0" loc="(230,140)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Clr"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="SansSerif plain 6"/>
+    </comp>
+    <comp lib="0" loc="(210,140)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Load"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="SansSerif plain 6"/>
+    </comp>
+    <comp lib="0" loc="(100,140)" name="Pin">
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Data in"/>
+      <a name="labelloc" val="south"/>
+    </comp>
+    <comp lib="0" loc="(280,100)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="16"/>
+      <a name="label" val="Data Memory Output"/>
+      <a name="labelloc" val="south"/>
+    </comp>
+    <comp lib="0" loc="(190,140)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="Clock"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="SansSerif plain 6"/>
+    </comp>
+  </circuit>
+</project>
